@@ -31,7 +31,7 @@ function getTasks(){
 	li.appendChild(document.createTextNode(task));
 	const link = document.createElement('a');
 	link.className = 'link delete';
-	link.innerHTML = '<i class="fa fa-trash"></i>';
+	link.innerHTML = '<i class="fa fa-trash cancel"></i>';
 	li.appendChild(link);
 	taskList.appendChild(li);
 	})
@@ -49,7 +49,7 @@ function addTask(e){
 	li.appendChild(document.createTextNode(taskInput.value));
 	const link = document.createElement('a');
 	link.className = 'link delete';
-	link.innerHTML = '<i class="fa fa-trash"></i>';
+	link.innerHTML = '<i class="fa fa-trash cancel"></i>';
 	li.appendChild(link);
 	taskList.appendChild(li);
 	//store in LS
@@ -62,12 +62,12 @@ function addTask(e){
 }
 
 function removeTask(e){
-	if (e.target.parentElement.classList.contains('fa-trash')) 
+	if (e.target.parentElement.classList.contains('delete')) 
 	{
 	// if (confirm("are you sure")) {
-		e.target.parentElement.parentElement.parentElement.remove();
+		e.target.parentElement.parentElement.remove();
 		//remove from local storage
-		removeTaskFromLocalStorage(e.target.parentElement.parentElement.parentElement);
+		removeTaskFromLocalStorage(e.target.parentElement.parentElement);
 
 
 	// }
